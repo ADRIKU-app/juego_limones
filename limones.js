@@ -25,6 +25,11 @@ function moverIzquierda(){
     refrescarPantalla();
 }
 
+function moverDerecha(){
+    personajeX = personajeX +10;
+    refrescarPantalla();
+}
+
 function refrescarPantalla(){
     limpiarCanva();
     dibujarSuelo();
@@ -33,5 +38,4 @@ function refrescarPantalla(){
 
 function limpiarCanva(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-
 }
