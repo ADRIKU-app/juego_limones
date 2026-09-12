@@ -13,12 +13,13 @@ let limonY=5;
 let puntaje=0;
 let vidas=3;
 let velocidadCaida=200;
+let intervaloJuego;
 
 function iniciar(){
     /*setInterval recibe 2 parámetros:
     1. primerParametro: function
     2. segundoParametro: tiempo en ms*/
-    setInterval(bajarLimon,velocidadCaida);
+    intervaloJuego=setInterval(bajarLimon,velocidadCaida);
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
@@ -76,7 +77,22 @@ function detectarAtrapado(){
         aparecerLimon();
         puntaje=puntaje+1;
         mostrarEnSpan("txtPuntaje",puntaje);
+    } if(puntaje==3){
+        velocidadCaida=150;
+        reiniciarIntervalo();
+    } else if(puntaje==6){
+        velocidadCaida=100;
+        reiniciarIntervalo();
+    } else if(puntaje==10){
+        alert("GANASTE! AHORA SIGUE PROGRAMANDO =D");
+        clearInterval(intervaloJuego);
     }
+}
+
+function reiniciarIntervalo(){
+    clearInterval(intervaloJuego);
+    intervaloJuego = setInterval(bajarLimon, velocidadCaida);
+
 }
 
 function detectarPiso(){
