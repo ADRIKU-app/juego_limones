@@ -110,3 +110,18 @@ function aparecerLimon(){
     limonY = 0;
     refrescarPantalla();
 }
+
+function reiniciar() {
+    puntaje = 0;
+    vidas = 3;
+    
+    velocidadCaida = 200; 
+    if (typeof intervaloJuego !== 'undefined') {
+        clearInterval(intervaloJuego);
+    }
+
+    mostrarEnSpan("txtPuntaje", puntaje);
+    mostrarEnSpan("txtVidas", vidas);
+
+    iniciar();
+}
