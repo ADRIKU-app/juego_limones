@@ -124,4 +124,4 @@ function reiniciar() {
     mostrarEnSpan("txtVidas", vidas);
 
     iniciar();
-}
+}   
